@@ -1,9 +1,5 @@
 ### 分页器
 
-### 下载
-
-
-
 #### 使用
 
 1. 引入样式文件`<link rel="stylesheet" href="./paginationself.css">`
@@ -77,14 +73,11 @@ paginationself(fatherDom,options,callback)
 ```
 
 ### 效果图
-
 #### 图1
-![](https://dreamos.oss-cn-beijing.aliyuncs.com/gitblog/20220403154238.png)
+![](README/img/20220403154238.png)
 #### 图2
-![](https://dreamos.oss-cn-beijing.aliyuncs.com/gitblog/20220403154403.png)
+![](README/img/20220403154403.png)
 #### 图3
-
-![](https://dreamos.oss-cn-beijing.aliyuncs.com/gitblog/20220403154454.png)
-
+![](README/img/20220403154454.png)
 #### 图4
-![](https://dreamos.oss-cn-beijing.aliyuncs.com/gitblog/20220403154318.png)
+![](README/img/20220403154318.png)
