@@ -1,0 +1,99 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.public,
+div.self-first,
+div.self-prev,
+div.self-next,
+div.self-last {
+  border: 1px solid #e5e5e5;
+  margin: 0px 5px;
+  padding: 5px 5px;
+  cursor: pointer;
+  min-width: 40px;
+  text-align: center;
+  background-color: white;
+  user-select: none;
+}
+.publichover {
+  border: 1px solid #ff4400;
+  color: #ff4400;
+}
+
+/* (可活动) */
+div.self-first,
+div.self-prev,
+div.self-next,
+div.self-last {
+  /*鼠标经过首页,上一页,下一页,尾页*/
+}
+div.self-first:hover,
+div.self-prev:hover,
+div.self-next:hover,
+div.self-last:hover {
+  border: 1px solid #ff4400;
+  color: #ff4400;
+}
+/*不可活动*/
+div.self-first.noactive,
+div.self-prev.noactive,
+div.self-next.noactive,
+div.self-last.noactive {
+  color: #cccccc;
+}
+div.self-first.noactive:hover,
+div.self-prev.noactive:hover,
+div.self-next.noactive:hover,
+div.self-last.noactive:hover {
+  border: 1px solid #e5e5e5;
+}
+/* 页码样式 */
+div.self-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*普通页码显示样式*/
+  /* 页码活动样式 */
+}
+div.self-list p {
+  border: 1px solid #e5e5e5;
+  margin: 0px 5px;
+  padding: 5px 0px;
+  color: #3e3e3e;
+  background-color: white;
+  cursor: pointer;
+  text-align: center;
+  min-width: 35px;
+  user-select: none;
+  /*页码鼠标经过页*/
+}
+div.self-list p:hover {
+  border: 1px solid #ff4400;
+  color: #ff4400;
+}
+div.self-list p.active {
+  color: white;
+  background-color: #ff4400;
+}
+/* 输入框样式 */
+.self-input {
+  text-align: center;
+  width: 30px;
+  padding: 5px 10px;
+  outline: none;
+}
+/*按钮样式*/
+button.self-button {
+  margin: 0px 5px;
+  min-width: 50px;
+  padding: 5px 10px;
+  background-color: white;
+  border: 1px solid #e5e5e5;
+  /*鼠标经过按钮*/
+}
+button.self-button:hover {
+  border: 1px solid #ff4400;
+  color: #ff4400;
+}
+/*# sourceMappingURL=./fy.css.map */
