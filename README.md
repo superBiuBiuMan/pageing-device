@@ -9,7 +9,7 @@
 3. js代码添加
 
    ```javascript
-   var fy = document.getElementById("fy");//父容器,负责存储分页器
+   var fy = document.getElementById("pagination_self");//父容器,负责存储分页器,id名不要改
    paginationself(fy, {});
    ```
 
@@ -44,7 +44,7 @@ paginationself(fatherDom,options,callback)
     <title>Document</title>
     <link rel="stylesheet" href="./paginationself.css">
     <style>
-        #fy {
+        /* #fy {
             width: 100%;
             height: 50px;
             border: 1px solid #e5e5e5;
@@ -52,16 +52,16 @@ paginationself(fatherDom,options,callback)
             display: flex;
             justify-content: center;
             align-items: center;
-        }
+        } */
     </style>
 </head>
 <body>
-    <div id="fy">
+    <div id="pagination_self">
     </div>
     <script src="./paginationself.js"></script>
     <script>
         // 使用
-        var fy = document.getElementById("fy");
+        var fy = document.getElementById("pagination_self");
         paginationself(fy, {}, (nowpage) => {
             //此为回调函数,可省略~
         });
