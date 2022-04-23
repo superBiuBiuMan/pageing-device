@@ -10,10 +10,10 @@
         this.default = {
             //数据信息
             pageInfo: {
-                pagenum: 1, //当前页
-                pagesize: 10, //一页显示的条数
-                totalsize: 1000, //总条数
-                totalpage: 100, //总页数
+                pageNum: 1, //当前页
+                // pagesize: 10, //一页显示的条数
+                // totalsize: 1000, //总条数
+                totalPage: 100, //总页数
                 least: 10, //当总页数低于这个数的时候设置全部显示
                 size: 4 //一次显示多少页数据,4页就是1,2,3,4....倒数第二,倒数第一
             },
@@ -51,11 +51,11 @@
         //清空父元素
         this.ele.innerHTML = "";
         for (let key in this.option.pageInfo) {
-            key = key.toLowerCase();
+            // key = key.toLowerCase();
             this.default.pageInfo[key] = this.option.pageInfo[key];
         }
         for (let key in this.option.textInfo) {
-            key = key.toLowerCase();
+            // key = key.toLowerCase();
             this.default.textInfo[key] = this.option.textInfo[key];
         }
     }
@@ -64,8 +64,8 @@
     pagination.prototype.showNum = function () {
         //清空前面的页码
         this.list.innerHTML = "";
-        var nowPage = parseInt(this.default.pageInfo.pagenum); //获取当前页码
-        var totalpage = parseInt(this.default.pageInfo.totalpage); //获取总页数
+        var nowPage = parseInt(this.default.pageInfo.pageNum); //获取当前页码
+        var totalPage = parseInt(this.default.pageInfo.totalPage); //获取总页数
         var least = parseInt(this.default.pageInfo.least); //当总页数低于这个数的时候设置全部显示
         var size = parseInt(this.default.pageInfo.size); //一次显示多少页数据,4页就是1,2,3,4....倒数第二,倒数第一
         //输入框数字更新!!!!!!!!!!!!!!!!
@@ -74,9 +74,9 @@
         this.closeButton();
         //启用回调,返回当前页码
         this.cb(nowPage);
-        if (totalpage <= least) {
+        if (totalPage <= least) {
             //显示全部页码
-            for (let i = 1; i <= totalpage; i++) {
+            for (let i = 1; i <= totalPage; i++) {
                 //创建元素
                 var p1 = this.createEleP(i, nowPage);
                 //添加到页码list
@@ -98,14 +98,14 @@
                 em.innerText = "...";
                 this.list.appendChild(em);
                 //在额外添加导数二页
-                for (let i = totalpage - 1; i <= totalpage; i++) {
+                for (let i = totalPage - 1; i <= totalPage; i++) {
                     //创建元素
                     var p1 = this.createEleP(i, nowPage);
                     //添加到页码list
                     this.list.appendChild(p1);
                 }
             }
-            //当前的页(pagenum)大于了设置的最低显示页数(size)等之类的条件
+            //当前的页(pageNum)大于了设置的最低显示页数(size)等之类的条件
             // 当前页码等于一次显示的页码,从1,显示到size+2页
             else if (nowPage == size) {
                 // console.log("我进来了nowPage == size");
@@ -120,7 +120,7 @@
                 em.innerText = "...";
                 this.list.appendChild(em);
                 //在额外添加导数二页
-                for (let i = totalpage - 1; i <= totalpage; i++) {
+                for (let i = totalPage - 1; i <= totalPage; i++) {
                     //创建元素
                     var p1 = this.createEleP(i, nowPage);
                     //添加到页码list
@@ -129,7 +129,7 @@
             }
 
             //
-            else if (nowPage > size && nowPage < (totalpage - size)) {
+            else if (nowPage > size && nowPage < (totalPage - size)) {
                 // console.log("我进来了nowPage > size-------------");
                 // 显示前二页
                 for (let i = 1; i <= 2; i++) {
@@ -154,7 +154,7 @@
                 em.innerText = "...";
                 this.list.appendChild(em);
                 //显示末尾的
-                for (let i = totalpage - 1; i <= totalpage; i++) {
+                for (let i = totalPage - 1; i <= totalPage; i++) {
                     //创建元素
                     var p1 = this.createEleP(i, nowPage);
                     //添加到页码list
@@ -176,7 +176,7 @@
                 em.innerText = "...";
                 this.list.appendChild(em);
                 //显示剩余的
-                for (let i = (totalpage - size); i <= totalpage; i++) {
+                for (let i = (totalPage - size); i <= totalPage; i++) {
                     //创建元素
                     var p1 = this.createEleP(i, nowPage);
                     //添加到页码list
@@ -193,49 +193,49 @@
             //兼容处理
             e = e || window.event;
             var tarEle = e.target || e.srcElement;
-            var pagenum = parseInt(this.default.pageInfo.pagenum);
-            var totalpage = parseInt(this.default.pageInfo.totalpage);
+            var pageNum = parseInt(this.default.pageInfo.pageNum);
+            var totalPage = parseInt(this.default.pageInfo.totalPage);
             //首页 (判断class名字)
-            if ("self-first" == tarEle.className && pagenum != 1) {
+            if ("self-first" == tarEle.className && pageNum != 1) {
                 //修改当前页数据
-                this.default.pageInfo.pagenum = 1;
+                this.default.pageInfo.pageNum = 1;
                 this.showNum();
                 return;
             }
             //上一页
-            if ("self-prev" == tarEle.className && pagenum != 1) {
-                this.default.pageInfo.pagenum = --pagenum;
+            if ("self-prev" == tarEle.className && pageNum != 1) {
+                this.default.pageInfo.pageNum = --pageNum;
                 //重新绘制
                 this.showNum();
                 return;
             }
             //下一页
-            if ("self-next" == tarEle.className && pagenum != totalpage) {
-                this.default.pageInfo.pagenum = ++pagenum;
+            if ("self-next" == tarEle.className && pageNum != totalPage) {
+                this.default.pageInfo.pageNum = ++pageNum;
                 //重新绘制
                 this.showNum();
                 return;
             }
             //尾页
-            if ("self-last" == tarEle.className && pagenum != totalpage) {
-                this.default.pageInfo.pagenum = totalpage;
+            if ("self-last" == tarEle.className && pageNum != totalPage) {
+                this.default.pageInfo.pageNum = totalPage;
                 //重新绘制
                 this.showNum();
                 return;
             }
             //用户单击了页码
-            if ("P" == tarEle.nodeName && pagenum != tarEle.innerText) {
+            if ("P" == tarEle.nodeName && pageNum != tarEle.innerText) {
                 //重新设置页码
-                this.default.pageInfo.pagenum = tarEle.innerText;
+                this.default.pageInfo.pageNum = tarEle.innerText;
                 //重新绘制
                 this.showNum();
                 return;
             }
             //用户单击了"确定"跳转到某一页
-            if ("BUTTON" == tarEle.nodeName && pagenum != tarEle.previousElementSibling.value) {
+            if ("BUTTON" == tarEle.nodeName && pageNum != tarEle.previousElementSibling.value) {
                 //获取输入框的数字
                 var value = tarEle.previousElementSibling.value;
-                this.default.pageInfo.pagenum = parseInt(value);
+                this.default.pageInfo.pageNum = parseInt(value);
                 this.showNum();
                 return;
             }
@@ -245,11 +245,11 @@
     //设置按钮禁用操作
     pagination.prototype.closeButton = function () {
         //获取当前页码,不涉及数字算术操作,所以不使用parseInt
-        var pagenum = this.default.pageInfo.pagenum;
+        var pageNum = this.default.pageInfo.pageNum;
         //获取div按钮,也就是首页,上一页,下一页,尾页
         var divs = this.ele.querySelectorAll("div");
         //如果在第一页
-        if (pagenum == 1) {
+        if (pageNum == 1) {
             //添加不可活动类
             divs[0].classList.add("noactive"); //首页按钮
             divs[1].classList.add("noactive"); //上一页按钮
@@ -260,7 +260,7 @@
             divs[1].classList.remove("noactive"); //上一页按钮
         }
         //如果在最后一页
-        if (pagenum == this.default.pageInfo.totalpage) {
+        if (pageNum == this.default.pageInfo.totalPage) {
             //添加不可活动类
             divs[3].classList.add("noactive") //下一页按钮
             divs[4].classList.add("noactive") //尾页按钮
@@ -282,19 +282,19 @@
             //获取输入框的值
             var value = parseInt(ipt.value); //记得转化为整形
             //获取当前页
-            var pagenum = this.default.pageInfo.pagenum;
+            var pageNum = this.default.pageInfo.pageNum;
             //获取总页
-            var totalpage = this.default.pageInfo.totalpage;
+            var totalPage = this.default.pageInfo.totalPage;
             //如果输入的值大于了最大的页数和小于了1
-            if (value > totalpage || value < 1) {
+            if (value > totalPage || value < 1) {
                 //不变动
-                ipt.value = pagenum;
+                ipt.value = pageNum;
                 return;
             }
             //值为合法的值并且输入的值不等于当前的页码
-            if (value && value != pagenum) {
+            if (value && value != pageNum) {
                 //更新当前页
-                this.default.pageInfo.pagenum = value;
+                this.default.pageInfo.pageNum = value;
                 //重新绘制
                 this.showNum();
             }
@@ -303,7 +303,7 @@
         ipt.onkeydown = (e) => {
             e = e || window.event;
             //回车键被按下
-            if (e.keyCode == 13 && parseInt(ipt.value) && this.default.pageInfo.pagenum != parseInt(ipt.value)) {
+            if (e.keyCode == 13 && parseInt(ipt.value) && this.default.pageInfo.pageNum != parseInt(ipt.value)) {
                 ipt.onblur();
             }
         }
@@ -346,7 +346,7 @@
         //设置输入框类名
         iptEle.className = "self-input";
         //设置显示页数
-        iptEle.value = this.default.pageInfo.pagenum;
+        iptEle.value = this.default.pageInfo.pageNum;
         //创建跳转按钮
         var btnEle = document.createElement("button");
         //设定类名

@@ -8,18 +8,19 @@
     <title>Document</title>
     <link rel="stylesheet" href="./paginationself.css">
     <style>
-        /* 外壳样式,必写 */
-         #pagination_self {
-            width: 100%;
+        /* 外壳样式,可选,写了就覆盖默认的 */
+        /* #pagination_self {
+            width: 98%;
             height: 50px;
             border: 1px solid #e5e5e5;
             margin: 20px auto;
             display: flex;
             justify-content: center;
             align-items: center;
-        } 
+        }  */
     </style>
 </head>
+
 <body>
     <!-- id名不可变动! -->
     <div id="pagination_self">
@@ -28,11 +29,18 @@
     <script>
         // 使用
         var fy = document.getElementById("pagination_self");
-        paginationself(fy, {}, (nowpage) => {
+        paginationself(fy, {
+            pageInfo: {
+                pageNum:2,
+                totalPage:25
+            }
+        }, (nowPage) => {
             //此为回调函数,可省略~
+            console.log(nowPage);
         });
         //等同于
         // paginationself(fy,{});
     </script>
 </body>
+
 </html>
