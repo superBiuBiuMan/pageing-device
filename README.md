@@ -37,6 +37,7 @@ paginationself(fatherDom,options,callback)
 ```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,7 +45,8 @@ paginationself(fatherDom,options,callback)
     <title>Document</title>
     <link rel="stylesheet" href="./paginationself.css">
     <style>
-        /* #fy {
+        /* 外壳样式,必写 */
+         #pagination_self {
             width: 100%;
             height: 50px;
             border: 1px solid #e5e5e5;
@@ -52,10 +54,11 @@ paginationself(fatherDom,options,callback)
             display: flex;
             justify-content: center;
             align-items: center;
-        } */
+        } 
     </style>
 </head>
 <body>
+    <!-- id名不可变动! -->
     <div id="pagination_self">
     </div>
     <script src="./paginationself.js"></script>
